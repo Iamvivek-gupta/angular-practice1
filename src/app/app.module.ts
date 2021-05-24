@@ -6,12 +6,14 @@ import { HeaderComponent } from './header/header.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MeanComponent } from './mean/mean.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    MeanComponent
   ],
   imports: [
     BrowserModule,

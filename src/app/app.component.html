@@ -1,8 +1,8 @@
-<nav class="navbar navbar-light bg-light mb-5">
+<!-- <nav class="navbar navbar-light bg-light mb-5">
     <div class="container">
         <a class="navbar-brand font-weight-bold">Empyolee Management System</a>
     </div>
-</nav>
+</nav> -->
 
 
 <!-- <h1>hallo codex</h1>
@@ -23,5 +23,25 @@
 <input type="text" placeholder="enter your name" [value]=""> -->
 <!-- <app-data-binding></app-data-binding> -->
 
-<app-mean></app-mean>
+<!-- <app-mean></app-mean> -->
+
+
+
+<ul class="nav nav-tabs navbar-light bg-light">
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" routerLink="/about">AboutUs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" routerLink="/product">Products</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" routerLink="contact">ContactUs</a>
+    </li>
+</ul>
+<router-outlet></router-outlet>
+
+<!-- <app-mean></app-mean> -->
    

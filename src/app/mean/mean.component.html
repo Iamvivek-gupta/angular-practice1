@@ -12,36 +12,16 @@
 
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor= "let employee of employeeDetails">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Vijay</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Full Stack Developer</h6>
-                    <span class="badge badge-success">Design</span>
-                    <hr>
-                    <button type="button" class="btn btn-outline-primary mr-5">Edit</button>
-                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Komal Ji</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">SeniorSoftawre Developer</h6>
-                    <span class="badge badge-danger">Accountants</span>
-                    <hr>
-                    <button type="button" class="btn btn-outline-primary mr-5">Edit</button>
-                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Supriya</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Software Developer</h6>
-                    <span class="badge badge-success">Coder</span>
+                    <h5 class="card-title">{{employee.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{employee.designation}}</h6>
+                    <span class="badge" [ngClass]="{
+                        'badge-success': employee.department === 'IT',
+                        'btn-outline-danger': employee.department === 'CSE',
+                        'btn-primary': employee.department === 'ECE'
+                    }">{{employee.department}}</span>
                     <hr>
                     <button type="button" class="btn btn-outline-primary mr-5">Edit</button>
                     <button type="button" class="btn btn-outline-danger">Delete</button>

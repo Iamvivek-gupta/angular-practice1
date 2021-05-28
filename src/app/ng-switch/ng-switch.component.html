@@ -1,0 +1,26 @@
+<!-- <div class="container" [ngSwitch]="ticket">
+    <div *ngSwitchCase="'Economy'">my ticket is economy</div>
+    <div *ngSwitchCase="'Business'">my ticket is business</div>
+    <div *ngSwitchCase="'Platinum'">my ticket is platinum</div>
+    <div *ngSwitchCase="'Gold'">my ticket is gold</div>
+    <div *ngSwitchDefault>Welcome to Codex</div>
+</div> -->
+
+
+<div class="container" >
+    <select name="" id="" #meal>
+        <option value="0">order any food</option>
+        <option value="roll">roll</option>
+        <option value="gulab">gulab</option>
+        <option value="burger">burger</option>
+        <option value="pizza">pizza</option>
+    </select>
+    <button (click)=getfood(meal)>Order Now</button>
+</div>
+<div class="container" [ngSwitch]="food">
+    <div *ngSwitchCase="'roll'"><img style="width: 200px;height: 200px;" src="https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_900,h_1200/https://tatyanaseverydayfood.com/wp-content/uploads/2014/04/Easy-Shrimp-Spring-Rolls.jpg" alt=""></div>
+    <div *ngSwitchCase="'gulab'"><img style="width: 200px;height: 200px;" src="../../assets/f2.jpg" alt=""></div>
+    <div *ngSwitchCase="'burger'"><img style="width: 200px;height: 200px;" src="../../assets/flower.png" alt=""></div>
+    <div *ngSwitchCase="'pizza'"><img style="width: 200px;height: 200px;" src="../../assets/mouse.jpg" alt=""></div>
+    <div *ngSwitchDefault>no food selected</div>
+</div>

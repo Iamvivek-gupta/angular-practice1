@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MeanComponent } from './mean/mean.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TempateReferanceComponent } from './tempate-referance/tempate-referance.component';
+import { NgSwitchComponent } from './ng-switch/ng-switch.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HeaderComponent,
     DataBindingComponent,
-    MeanComponent
+    MeanComponent,
+    TempateReferanceComponent,
+    NgSwitchComponent
   ],
   imports: [
     BrowserModule,

@@ -10,4 +10,9 @@ export class CountryService {
   getCountryDetails(){
     return this.http.get('https://restcountries.eu/rest/v2/all')
   }
+
+
+  getallEmp(){
+    return this.http.get('http://localhost:5001/api/v1/emp/getallEmp');
+  }
 }

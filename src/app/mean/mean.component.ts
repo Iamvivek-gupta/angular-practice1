@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CountryService } from '../country.service';
 
 @Component({
   selector: 'app-mean',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeanComponent implements OnInit {
 
-  constructor() { }
+  constructor(private employeeservice: CountryService) { 
+    this.getallEmployee()
+  }
 
   ngOnInit(): void {
   }
@@ -20,5 +23,13 @@ export class MeanComponent implements OnInit {
     {id:"5", name : "mugdha", designation:"tester",department:"ECE"},
     {id:"6", name : "monika", designation:"designer",department:"CSE"},
   ]
+
+  getallEmployee(){
+    this.employeeservice.getallEmp().subscribe(data => {
+      console.log(data)
+    }, err => {
+      console.log(err)
+    })
+  }
 
 }

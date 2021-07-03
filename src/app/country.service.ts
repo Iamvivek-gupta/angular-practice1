@@ -13,6 +13,11 @@ export class CountryService {
 
 
   getallEmp(){
-    return this.http.get('http://localhost:5001/api/v1/emp/getallEmp');
+    return this.http.get('http://localhost:9001/api/v1/emp/getallEmp');
+  }
+
+  createEmp(empyoleeData){
+    console.log(empyoleeData)
+    return this.http.post('http://localhost:9001/api/v1/emp/createnewEmp', empyoleeData)
   }
 }

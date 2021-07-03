@@ -24,11 +24,31 @@ export class MeanComponent implements OnInit {
     {id:"6", name : "monika", designation:"designer",department:"CSE"},
   ]
 
+  employeeDetail : any;
+  status: any;
+  data: any;
+  name: String;
+  salary: Number;
+  department: String;
+
   getallEmployee(){
-    this.employeeservice.getallEmp().subscribe(data => {
-      console.log(data)
+    this.employeeservice.getallEmp().subscribe(res => {
+      this.data = res.data;
+      this.employeeDetail = this.data.emp;
     }, err => {
       console.log(err)
+    })
+  }
+
+
+  createEmployee(){
+    let employee = {"Name": this.name, "Salary": this.salary, "Department":this.department};
+    this.employeeservice.createEmp(employee).subscribe(res => {
+      //console.log(res);
+      alert(res.status);
+      this.getallEmployee();
+    }, err => {
+      alert(err.message);
     })
   }
 

@@ -1,4 +1,4 @@
-
+{{ employeeDetail | json}}
 <div class="container py-3">
     <div class="row">
         <div class="col-md-6">
@@ -12,16 +12,16 @@
 
 
     <div class="row">
-        <div class="col-md-4" *ngFor= "let employee of employeeDetails">
+        <div class="col-md-4" *ngFor= "let employee of employeeDetail">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{employee.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{employee.designation}}</h6>
+                    <h5 class="card-title">{{employee.Name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{employee.Department}}</h6>
                     <span class="badge" [ngClass]="{
                         'badge-success': employee.department === 'IT',
                         'btn-outline-danger': employee.department === 'CSE',
                         'btn-primary': employee.department === 'ECE'
-                    }">{{employee.department}}</span>
+                    }">{{employee.Salary}}</span>
                     <hr>
                     <button type="button" class="btn btn-outline-primary mr-5">Edit</button>
                     <button type="button" class="btn btn-outline-danger">Delete</button>
@@ -44,24 +44,20 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Enter Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="name" [(ngModel)] = "name">
                     </div>
                     <div class="form-group">
-                        <label>Enter position</label>
-                        <input type="text" class="form-control">
+                        <label>Enter Department</label>
+                        <input type="text" class="form-control" name="department" [(ngModel)] = "department">
                     </div>
                     <div class="form-group"> 
-                        <label>Enter Office</label> 
-                        <input type="text" class="form-control">
-                    </div> 
-                    <div class="form-group"> 
                         <label>Enter Salary</label> 
-                        <input type="text" class="form-control"> 
+                        <input type="text" class="form-control" name="salary" [(ngModel)] = "salary"> 
                     </div> 
                 </div> 
                 <div class="modal-footer"> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-                    <button type="submit" class="btn btn-primary">Submit</button> 
+                    <button type="submit" class="btn btn-primary" (click)="createEmployee()">Add Employee</button> 
                 </div> 
             </form> 
         </div> 

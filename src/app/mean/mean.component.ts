@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../country.service';
-
 @Component({
   selector: 'app-mean',
   templateUrl: './mean.component.html',
@@ -30,6 +29,7 @@ export class MeanComponent implements OnInit {
   name: String;
   salary: Number;
   department: String;
+  showModal: boolean = false;
 
   getallEmployee(){
     this.employeeservice.getallEmp().subscribe(res => {
@@ -41,6 +41,11 @@ export class MeanComponent implements OnInit {
   }
 
 
+  openModel(){
+    alert("halllo")
+    this.showModal = true;
+  }
+
   createEmployee(){
     let employee = {"Name": this.name, "Salary": this.salary, "Department":this.department};
     this.employeeservice.createEmp(employee).subscribe(res => {
@@ -49,6 +54,31 @@ export class MeanComponent implements OnInit {
       this.getallEmployee();
     }, err => {
       alert(err.message);
+    })
+  }
+
+  deleteEmployee(id){
+    alert(id);
+    this.employeeservice.deleteEmp(id).subscribe(res => {
+      alert(res.message);
+      this.getallEmployee();
+    }, err => {
+      alert('something went wrong');
+    })
+  }
+
+  Name;
+  Department;
+  Salary;
+
+
+  updateEmployee(){
+    let object = {Name: this.Name, department: this.Department, salary: this.Salary};
+    this.employeeservice.updateEmp(object).subscribe(res => {
+      alert('updated success');
+      this.getallEmployee();
+    }, err =>{
+      alert('something went wrong')
     })
   }
 

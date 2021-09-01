@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { threadId } from 'node:worker_threads';
 
 @Injectable({
   providedIn: 'root'

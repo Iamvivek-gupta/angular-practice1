@@ -1,4 +1,13 @@
-{{ employeeDetail | json}}
+<!-- <h3>today date {{ presentDate | date }} </h3>
+<h3>short date {{ presentDate | date:'shortDate'}} </h3>
+<h3>full date {{ presentDate | date:'fullDate' | uppercase}} </h3>
+<h3>format date {{ presentDate | date:'dd/MM/yyyy'}} </h3>
+<h3>finalyy date {{ presentDate | date:'h:mm'}} </h3>
+
+
+<h4>{{price | currency:'GBP'}}</h4>
+
+<h4>{{Student | titlecase}}</h4> -->
 <div class="container py-3">
     <div class="row">
         <div class="col-md-6">
@@ -23,7 +32,7 @@
                         'btn-primary': employee.department === 'ECE'
                     }">{{employee.Salary}}</span>
                     <hr>
-                    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#updateModal">Edit</button>
+                    <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#exampleModal" (click)="updateEmployee(employee)">Edit</button>
                     <button type="button" class="btn btn-outline-danger" (click) = "deleteEmployee(employee._id)">Delete</button>
                 </div>
             </div>
@@ -32,38 +41,6 @@
 </div>
 
 
-
-
-<div class="modal fade show" id="updateModal" >
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Update Employee</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div> 
-            <form>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Enter Name</label>
-                        <input type="text" class="form-control" name="name" [(ngModel)] = "Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Enter Department</label>
-                        <input type="text" class="form-control" name="department" [(ngModel)] = "Department">
-                    </div>
-                    <div class="form-group"> 
-                        <label>Enter Salary</label> 
-                        <input type="text" class="form-control" name="salary" [(ngModel)] = "Salary"> 
-                    </div> 
-                </div> 
-                <div class="modal-footer"> 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateEmployee()">Update Employee</button> 
-                </div> 
-            </form> 
-        </div> 
-    </div> 
-</div>
 
 
 

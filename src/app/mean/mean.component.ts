@@ -14,6 +14,9 @@ export class MeanComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public presentDate: any = new Date();
+  public price: number = 20000;
+  public Student = "hallo vijay! welcome to codex";
   employeeDetails : any = [
     {id:"1", name : "supriya", designation:"Ionic developer",department :"CSE"},
     {id:"2", name : "komal", designation:"software developer", department:"IT"},
@@ -33,8 +36,8 @@ export class MeanComponent implements OnInit {
 
   getallEmployee(){
     this.employeeservice.getallEmp().subscribe(res => {
-      this.data = res.data;
-      this.employeeDetail = this.data.emp;
+      this.data = res;
+      this.employeeDetail = this.data.data.emp;
     }, err => {
       console.log(err)
     })
@@ -50,7 +53,7 @@ export class MeanComponent implements OnInit {
     let employee = {"Name": this.name, "Salary": this.salary, "Department":this.department};
     this.employeeservice.createEmp(employee).subscribe(res => {
       //console.log(res);
-      alert(res.status);
+      alert(res);
       this.getallEmployee();
     }, err => {
       alert(err.message);
@@ -60,7 +63,7 @@ export class MeanComponent implements OnInit {
   deleteEmployee(id){
     alert(id);
     this.employeeservice.deleteEmp(id).subscribe(res => {
-      alert(res.message);
+      alert(res);
       this.getallEmployee();
     }, err => {
       alert('something went wrong');
@@ -72,13 +75,23 @@ export class MeanComponent implements OnInit {
   Salary;
 
 
-  updateEmployee(){
-    let object = {Name: this.Name, department: this.Department, salary: this.Salary};
+  updateEmployee(data){
+    // let object = {Name: this.Name, department: this.Department, salary: this.Salary};
+    // this.employeeservice.updateEmp(object).subscribe(res => {
+    //   alert('updated success');
+    //   this.getallEmployee();
+    // }, err =>{
+    //   alert('something went wrong')
+    // })
+    alert(JSON.stringify(data))
+    this.name = data.Name;
+    this.salary = data.Salary;
+    this.department = data.Department;
+    let object = {Name: this.name, Department: this.department, Salary: this.salary};
     this.employeeservice.updateEmp(object).subscribe(res => {
-      alert('updated success');
-      this.getallEmployee();
-    }, err =>{
-      alert('something went wrong')
+      alert(JSON.stringify(res));
+    }, err => {
+      alert(JSON.stringify(err));
     })
   }
 

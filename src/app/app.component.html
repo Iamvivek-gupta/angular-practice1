@@ -42,7 +42,33 @@
     </li>
 </ul>
 <router-outlet></router-outlet>
-<app-mean></app-mean>
+<!-- <app-mean></app-mean> -->
 <!-- <app-tempate-referance></app-tempate-referance> -->
 <!-- <app-ng-switch></app-ng-switch> -->
+
+
+
+<div class="container rounded shadow py-5" style="width: 500px;">
+  <form #myForm= "ngForm" (submit)="onSubmit(myForm)">
+    <div class="form-group">
+      <label for="user">Username*</label>
+      <input type="password" #user="ngModel" class="form-control" id="user" [(ngModel)]="account" name="username" required placeholder="please enter your account number">
+      <small *ngIf="!user.touched">your account number is {{account}}</small>
+    </div>
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="text" class="form-control" id="email" ngModel name="email" required email #email="ngModel">
+      <small *ngIf="email.invalid && email.touched" style="color: red;">Please Enter Valid Email</small>
+    </div>
+    <div class="form-group">
+      <label for="course">Select Course</label>
+      <select class="form-control" id="course" [(ngModel)]="defaultCourse" name="course">
+        <option value="Angular">Angular</option>
+        <option value="Angular">NodeJs</option>
+        <option value="Angular">HTML5</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="myForm.invalid" class="btn btn-success message">Submit</button>
+  </form>
+</div>
    

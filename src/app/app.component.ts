@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name: string = 'vijay';
+  defaultCourse: String = 'Angular';
+  account: String = '';
+  
+
+
+
+  onSubmit(form:NgForm){
+    alert('hallo')
+    console.log(form.value);
+  }
 }

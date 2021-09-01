@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { TempateReferanceComponent } from './tempate-referance/tempate-referance.component';
 import { NgSwitchComponent } from './ng-switch/ng-switch.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

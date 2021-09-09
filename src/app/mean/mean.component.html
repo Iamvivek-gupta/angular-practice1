@@ -21,19 +21,20 @@
 
 
     <div class="row">
-        <div class="col-md-4" *ngFor= "let employee of employeeDetail">
+        <div class="col-md-4" *ngFor= "let employee of employeeDetails">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{employee.Name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{employee.Department}}</h6>
+                    <h5 class="card-title">{{employee.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{employee.department}}</h6>
                     <span class="badge" [ngClass]="{
                         'badge-success': employee.department === 'IT',
                         'btn-outline-danger': employee.department === 'CSE',
                         'btn-primary': employee.department === 'ECE'
-                    }">{{employee.Salary}}</span>
+                    }">{{employee.designation}}</span>
                     <hr>
                     <button type="button" class="btn btn-outline-primary mr-5" data-toggle="modal" data-target="#exampleModal" (click)="updateEmployee(employee)">Edit</button>
                     <button type="button" class="btn btn-outline-danger" (click) = "deleteEmployee(employee._id)">Delete</button>
+                    <button type="button" class="btn btn-outline-danger" [routerLink]="['/product', employee.id]">Details</button>
                 </div>
             </div>
         </div>
